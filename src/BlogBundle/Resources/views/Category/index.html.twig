@@ -3,40 +3,46 @@
 {% block body %}
     <h1>Categories list</h1>
 
-    <table class="table table-bordered">
-        <thead class="thead-default">
+    {% if categories is empty %}
+        <div class="alert alert-primary" role="alert">
+            This is no categories created!
+        </div>
+    {% else %}
+        <table class="table table-bordered">
+            <thead class="thead-default">
             <tr>
                 <th>Name</th>
                 <th>Description</th>
                 <th>Actions</th>
             </tr>
-        </thead>
-        <tbody>
-        {% for category in categories %}
-            <tr>
-                <td>{{ category.name }}</td>
-                <td>{{ category.description }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a class="btn btn-info" href="{{ path('category_show', { 'id': category.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a class="btn btn-primary" href="{{ path('category_edit', { 'id': category.id }) }}">edit</a>
-                        </li>
-                        <li>
-                            <a class="btn btn-primary" href="{{ path('category_show_posts', { 'id': category.id }) }}">posts</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            {% for category in categories %}
+                <tr>
+                    <td>{{ category.name }}</td>
+                    <td>{{ category.description }}</td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a class="btn btn-info" href="{{ path('category_show', { 'id': category.id }) }}">show</a>
+                            </li>
+                            <li>
+                                <a class="btn btn-primary" href="{{ path('category_edit', { 'id': category.id }) }}">edit</a>
+                            </li>
+                            <li>
+                                <a class="btn btn-primary" href="{{ path('category_show_posts', { 'id': category.id }) }}">posts</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
 
     <ul>
         <li>
-            <a class="badge badge-success" href="{{ path('category_new') }}">Create a new category</a>
+            <a class="btn btn-success" href="{{ path('category_new') }}">Create a new category</a>
         </li>
     </ul>
 {% endblock %}

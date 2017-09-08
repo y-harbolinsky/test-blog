@@ -8,4 +8,5 @@ blog_post:
 
 blog_homepage:
     path:     /
-    defaults: { _controller: BlogBundle:Default:index }
+    defaults: { _controller: "BlogBundle:Category:index" }
+    methods:  GET

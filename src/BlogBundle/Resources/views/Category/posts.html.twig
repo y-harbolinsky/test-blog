@@ -7,6 +7,12 @@
     <div class="col-sm-8 blog-main">
 
         <div class="blog-post">
+            {% if posts is empty %}
+                <div class="alert alert-primary" role="alert">
+                    This is no posts in this category!
+                </div>
+            {% endif %}
+
             {% for post in posts %}
                 <div>
                     <h2 class="blog-post-title">
@@ -20,6 +26,12 @@
                 </div>
             {% endfor %}
         </div>
+
+        <ul>
+            <li>
+                <a class="btn btn-success" href="{{ path('post_new') }}">Create a new post</a>
+            </li>
+        </ul>
     </div>
 
 {% endblock %}

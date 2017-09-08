@@ -41,7 +41,7 @@ class Post
      * @var string
      *
      * @ORM\Column(name="file", type="string", length=255, nullable=true)
-     * @Assert\File(maxSize = "2M")
+     * @Assert\File(maxSize = "2m")
      */
     private $file;
 
