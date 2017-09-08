@@ -44,7 +44,7 @@ class PostType extends AbstractType
 				'constraints' => [
 					new File([
 						'maxSize' => '2m',
-						'maxSizeMessage' => 'RRRRRRRRRRRRRRRRRRRRRRRR',
+						'maxSizeMessage' => 'Max File size 2M',
 					])
 				]
 			])
