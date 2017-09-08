@@ -2,7 +2,7 @@
 
 {% block body %}
     <div class="col-sm-4">
-        <p><a href="{{ path('category_index') }}">Back to the list</a></p>
+        <h5><a href="{{ path('category_index') }}">Back to the categories list</a></h5>
         <h1>Category edit</h1>
 
         {{ form_start(form) }}
@@ -22,12 +22,11 @@
         {{ form_label(form.submit) }}
         {{ form_end(form) }}
 
-        <ul>
-            <li>
-                {{ form_start(delete_form) }}
-                <input class="btn btn-danger" type="submit" value="Delete">
-                {{ form_end(delete_form) }}
-            </li>
-        </ul>
+        <div>
+            {{ form_start(delete_form) }}
+            <input class="btn btn-danger" type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </div>
+
     </div>
 {% endblock %}

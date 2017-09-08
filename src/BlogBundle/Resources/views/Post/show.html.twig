@@ -2,10 +2,10 @@
 
 {% block body %}
     <div class="row">
-        <p><a href="{{ path('post_index') }}">Back to the list</a></p>
+        <h5><a href="{{ path('post_index') }}">Back to the posts list</a></h5>
         <h1>Post</h1>
 
-        <div class="col-sm-8 blog-main">
+        <div class="col-sm-12 blog-main">
 
             <div class="blog-post">
                 <h2 class="blog-post-title">{{ post.title }}</h2>
@@ -17,18 +17,15 @@
             </div>
         </div>
 
-        <ul>
-            <li>
-                <a class="btn btn-primary" href="{{ path('post_edit', { 'id': post.id }) }}">Edit</a>
-            </li>
-            <li>
-                {{ form_start(delete_form) }}
-                    <input class="btn btn-danger" type="submit" value="Delete">
-                {{ form_end(delete_form) }}
-            </li>
-        </ul>
+        <div>
+            <a class="btn btn-primary pull-left" href="{{ path('post_edit', { 'id': post.id }) }}">Edit</a>
+            {{ form_start(delete_form) }}
+            <input class="btn btn-danger" type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </div>
 
         <div class="col-sm-8 blog-main">
+            <h2>Comments</h2>
             <div id="comments">
                 {% for comment in comments %}
                     <div class="col-6 col-lg-4">

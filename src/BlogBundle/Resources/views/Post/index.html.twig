@@ -25,14 +25,8 @@
                     {% endif %}
                 </td>
                 <td>
-                    <ul>
-                        <li>
-                            <a class="btn btn-info" href="{{ path('post_show', { 'id': post.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a class="btn btn-primary" href="{{ path('post_edit', { 'id': post.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                    <a class="btn btn-info" href="{{ path('post_show', { 'id': post.id }) }}">show</a>
+                    <a class="btn btn-primary" href="{{ path('post_edit', { 'id': post.id }) }}">edit</a>
                 </td>
             </tr>
         {% endfor %}
