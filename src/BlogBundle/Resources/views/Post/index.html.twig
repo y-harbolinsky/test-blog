@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Posts list</h1>
+
+    <table class="table table-bordered">
+        <thead class="thead-default">
+            <tr>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Image</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for post in posts %}
+            <tr>
+                <td>{{ post.title }}</td>
+                <td>{{ post.content }}</td>
+                <td>
+                    {% if post.file %}
+                        {{ asset(post.file) }}
+                    {% else %}
+                        ---
+                    {% endif %}
+                </td>
+                <td>
+                    <ul>
+                        <li>
+                            <a class="btn btn-info" href="{{ path('post_show', { 'id': post.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a class="btn btn-primary" href="{{ path('post_edit', { 'id': post.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a class="btn btn-success" href="{{ path('post_new') }}">Create a new post</a>
+        </li>
+    </ul>
+{% endblock %}

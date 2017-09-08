@@ -1,0 +1,34 @@
+category_index:
+    path:     /
+    defaults: { _controller: "BlogBundle:Category:index" }
+    methods:  GET
+
+category_show:
+    path:     /{id}/show
+    defaults: { _controller: "BlogBundle:Category:show" }
+    methods:  GET
+
+category_show_posts:
+    path:     /{id}/posts
+    defaults: { _controller: "BlogBundle:Category:posts" }
+    methods:  GET
+
+category_new:
+    path:     /create
+    defaults: { _controller: "BlogBundle:Category:create" }
+    methods:  [GET, POST]
+
+category_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "BlogBundle:Category:edit" }
+    methods:  [GET, POST]
+
+category_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "BlogBundle:Category:delete" }
+    methods:  DELETE
+
+category_comment_new:
+    path:     /comment
+    defaults: { _controller: "BlogBundle:Category:comment" }
+    methods:  [POST]

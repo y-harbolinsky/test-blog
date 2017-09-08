@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="col-sm-4">
+        <h1>Post creation</h1>
+
+        {{ form_start(form) }}
+        <div class="form-group">
+            {{ form_label(form.title) }}
+            {{ form_errors(form.title) }}
+            {{ form_widget(form.title) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.content) }}
+            {{ form_errors(form.content) }}
+            {{ form_widget(form.content) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.category) }}
+            {{ form_errors(form.category) }}
+            {{ form_widget(form.category) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.file) }}
+            {{ form_errors(form.file) }}
+            {{ form_widget(form.file) }}
+        </div>
+
+        {{ form_label(form.submit) }}
+        {{ form_end(form) }}
+
+        <ul>
+            <li>
+                <a href="{{ path('post_index') }}">Back to the list</a>
+            </li>
+        </ul>
+    </div>
+{% endblock %}

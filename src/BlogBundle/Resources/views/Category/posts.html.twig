@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <p><a href="{{ path('category_index') }}">Back to the list</a></p>
+    <h1>Category {{ category.name }}</h1>
+
+    <div class="col-sm-8 blog-main">
+
+        <div class="blog-post">
+            {% for post in posts %}
+                <div>
+                    <h2 class="blog-post-title">
+                        <a href="{{ path('post_show', { 'id': post.id }) }}">{{ post.title }}</a>
+                    </h2>
+
+                    <p>{{ post.content }}</p>
+                    {% if post.file %}
+                        {{ asset(post.file) }}
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
